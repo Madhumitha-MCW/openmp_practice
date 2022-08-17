@@ -12,14 +12,12 @@ int main(int argc, char *argv[])
     #pragma omp parallel 
     for(int i=0;i<8;i++)
     {
-
         printf("\nThis is a thread--> %d",omp_get_thread_num());
         count[omp_get_thread_num()]+=1; 
         times_exec++;
     }
     t = clock() - t;
     double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-    
     printf("\nfun() took %f seconds to execute \n", time_taken);
 
     for(int i=0;i<8;i++)
